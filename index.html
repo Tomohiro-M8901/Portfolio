@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiiro.M — Web Marketer & Designer Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. PORTFOLIO EDITORIAL DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      --pf-bg: #F6F4EF;
+      --pf-bg-sub: #ECE8DF;
+      --pf-card: #FAF9F6;
+      --pf-ink: #23201D;
+      --pf-muted: #6E675F;
+      --pf-accent: #9E624C;
+      --pf-accent-soft: #E6D7D0;
+      --pf-line: #DDD7CD;
+      --pf-blue: #2563EB;
+      --pf-amber: #B45309;
+      --pf-green: #059669;
+      --font-serif-jp: 'Shippori Mincho', serif;
+      --font-sans-jp: 'Zen Kaku Gothic New', sans-serif;
+      --font-en: 'Cormorant Garamond', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--pf-bg);
+      color: var(--pf-ink);
+      font-family: var(--font-sans-jp);
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    .pf-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246, 244, 239, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--pf-line);
+      transition: all 0.3s ease;
+    }
+
+    .pf-header-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pf-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--pf-ink);
+    }
+
+    .pf-brand-name {
+      font-family: var(--font-en);
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .pf-brand-role {
+      font-size: 0.76rem;
+      color: var(--pf-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .pf-nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .pf-nav a {
+      text-decoration: none;
+      color: var(--pf-ink);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .pf-nav a:hover {
+      color: var(--pf-accent);
+    }
+
+    .pf-nav-btn {
+      padding: 8px 18px;
+      border: 1px solid var(--pf-ink);
+      border-radius: 999px;
+      font-size: 0.8rem !important;
+      background: transparent;
+      color: var(--pf-ink);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: var(--font-sans-jp);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pf-nav-btn:hover {
+      background: var(--pf-ink);
+      color: var(--pf-bg) !important;
+    }
+
+    /* Container */
+    .pf-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Hero Section */
+    .pf-hero {
+      padding: 84px 0 72px;
+      border-bottom: 1px solid var(--pf-line);
+      background-image: radial-gradient(var(--pf-line) 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+    }
+
+    .pf-hero-meta {
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pf-accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pf-hero-meta::before {
+      content: "";
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--pf-accent);
+    }
+
+    .pf-hero-title {
+      font-family: var(--font-serif-jp);
+      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 26px;
+      color: var(--pf-ink);
+    }
+
+    .pf-hero-lead {
+      max-width: 820px;
+      font-size: 1rem;
+      color: var(--pf-muted);
+      line-height: 2.1;
+    }
+
+    /* Section Base */
+    .pf-section {
+      padding: 88px 0;
+      border-bottom: 1px solid var(--pf-line);
+    }
+
+    .pf-sec-head {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      margin-bottom: 44px;
+      align-items: baseline;
+    }
+
+    .pf-sec-label {
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pf-accent);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pf-sec-title {
+      font-family: var(--font-serif-jp);
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .pf-sec-desc {
+      color: var(--pf-muted);
+      font-size: 0.96rem;
+      line-height: 1.95;
+    }
+
+    /* 3 Pillars */
+    .pf-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pf-pillar-card {
+      background: var(--pf-card);
+      border: 1px solid var(--pf-line);
+      padding: 36px 30px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pf-pillar-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(35, 32, 29, 0.05);
+    }
+
+    .pf-pillar-num {
+      font-family: var(--font-en);
+      font-size: 2.2rem;
+      color: var(--pf-accent);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .pf-pillar-cross {
+      display: inline-block;
+      font-size: 0.74rem;
+      background: var(--pf-bg-sub);
+      color: var(--pf-ink);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .pf-pillar-title {
+      font-family: var(--font-serif-jp);
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .pf-pillar-text {
+      font-size: 0.9rem;
+      color: var(--pf-muted);
+      line-height: 1.95;
+    }
+
+    /* Works Tabs Switcher */
+    .pf-works-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--pf-line);
+      padding-bottom: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .pf-work-tab {
+      background: transparent;
+      border: 1px solid var(--pf-line);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-family: var(--font-sans-jp);
+      font-size: 0.85rem;
+      color: var(--pf-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pf-work-tab:hover {
+      border-color: var(--pf-ink);
+      color: var(--pf-ink);
+    }
+
+    .pf-work-tab.active {
+      background: var(--pf-ink);
+      color: #FAF8F5;
+      border-color: var(--pf-ink);
+      font-weight: 600;
+    }
+
+    .pf-work-tab-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      opacity: 0.7;
+    }
+
+    /* Works Grid (Intent + Phone Preview) */
+    .pf-work-grid {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .pf-case-study {
+      background: var(--pf-card);
+      border: 1px solid var(--pf-line);
+      padding: 40px 36px;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(35, 32, 29, 0.03);
+    }
+
+    .pf-case-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      color: var(--pf-accent);
+      border: 1px solid var(--pf-accent);
+      padding: 3px 12px;
+      margin-bottom: 16px;
+      border-radius: 2px;
+      font-family: var(--font-mono);
+    }
+
+    .pf-case-title {
+      font-family: var(--font-serif-jp);
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      line-height: 1.45;
+      color: var(--pf-ink);
+    }
+
+    .pf-case-sub {
+      font-size: 0.92rem;
+      color: var(--pf-muted);
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--pf-line);
+      line-height: 1.9;
+    }
+
+    .pf-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      font-size: 0.88rem;
+    }
+
+    .pf-spec-table th,
+    .pf-spec-table td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--pf-line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .pf-spec-table th {
+      width: 120px;
+      color: var(--pf-muted);
+      font-weight: 500;
+    }
+
+    .pf-intent-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-top: 18px;
+    }
+
+    .pf-intent-item {
+      padding-left: 18px;
+      border-left: 2px solid var(--pf-accent);
+    }
+
+    .pf-intent-item h4 {
+      font-family: var(--font-serif-jp);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--pf-ink);
+      font-weight: 600;
+    }
+
+    .pf-intent-item p {
+      font-size: 0.88rem;
+      color: var(--pf-muted);
+      line-height: 1.9;
+    }
+
+    /* Device Mockup */
+    .pf-device-column {
+      position: sticky;
+      top: 96px;
+    }
+
+    .pf-device-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--pf-muted);
+      margin-bottom: 12px;
+    }
+
+    .pf-device-shell {
+      background: #1B1918;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 24px 60px rgba(35, 32, 29, 0.16);
+      border: 1px solid #3A3532;
+    }
+
+    .pf-device-viewport {
+      background: #FAF8F5;
+      border-radius: 28px;
+      height: 740px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      scrollbar-width: thin;
+    }
+
+    /* Profile Section */
+    .pf-profile-wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 56px;
+      background: var(--pf-card);
+      border: 1px solid var(--pf-line);
+      padding: 48px;
+      border-radius: 6px;
+    }
+
+    .pf-profile-card {
+      border-right: 1px solid var(--pf-line);
+      padding-right: 36px;
+    }
+
+    .pf-avatar {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #E5DEC9 0%, #C8B9A6 50%, #9E8C7A 100%);
+      border-radius: 4px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      color: #FAF8F5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pf-avatar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 25%, rgba(255,255,255,0.35), transparent 55%);
+    }
+
+    .pf-avatar span {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+    }
+
+    .pf-name {
+      font-family: var(--font-en);
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+    }
+
+    .pf-basic {
+      font-size: 0.85rem;
+      color: var(--pf-muted);
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+
+    .pf-tag-title {
+      font-size: 0.78rem;
+      color: var(--pf-accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .pf-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .pf-tag {
+      font-size: 0.78rem;
+      padding: 4px 11px;
+      background: var(--pf-bg);
+      border: 1px solid var(--pf-line);
+      border-radius: 999px;
+      color: var(--pf-ink);
+    }
+
+    .pf-story h3 {
+      font-family: var(--font-serif-jp);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .pf-story p {
+      font-size: 0.94rem;
+      color: var(--pf-muted);
+      margin-bottom: 20px;
+      line-height: 2.05;
+    }
+
+    .pf-career-list {
+      margin: 28px 0;
+      border-top: 1px solid var(--pf-line);
+    }
+
+    .pf-career-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--pf-line);
+      font-size: 0.88rem;
+    }
+
+    .pf-career-domain {
+      font-weight: 700;
+      color: var(--pf-ink);
+    }
+
+    .pf-career-detail {
+      color: var(--pf-muted);
+    }
+
+    /* Contact Section */
+    .pf-contact-wrap {
+      background: var(--pf-card);
+      border: 1px solid var(--pf-line);
+      border-radius: 6px;
+      padding: 52px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .pf-contact-info h3 {
+      font-family: var(--font-serif-jp);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    .pf-contact-info p {
+      font-size: 0.92rem;
+      color: var(--pf-muted);
+      margin-bottom: 24px;
+      line-height: 2;
+    }
+
+    .pf-email-card {
+      background: var(--pf-bg);
+      border: 1px solid var(--pf-line);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .pf-email-label {
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      color: var(--pf-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pf-email-address {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--pf-ink);
+      display: block;
+      margin-bottom: 14px;
+      word-break: break-all;
+    }
+
+    .pf-email-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .pf-copy-btn, .pf-mail-btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-sans-jp);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .pf-copy-btn {
+      background: var(--pf-ink);
+      color: #FAF8F5;
+      border: 1px solid var(--pf-ink);
+    }
+    .pf-copy-btn:hover {
+      background: var(--pf-accent);
+      border-color: var(--pf-accent);
+    }
+
+    .pf-mail-btn {
+      background: white;
+      color: var(--pf-ink);
+      border: 1px solid var(--pf-line);
+    }
+    .pf-mail-btn:hover {
+      border-color: var(--pf-ink);
+    }
+
+    /* Contact Form */
+    .pf-form-group {
+      margin-bottom: 18px;
+    }
+
+    .pf-form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--pf-ink);
+    }
+
+    .pf-input, .pf-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: white;
+      border: 1px solid var(--pf-line);
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-family: var(--font-sans-jp);
+      color: var(--pf-ink);
+      transition: border-color 0.2s ease;
+    }
+
+    .pf-input:focus, .pf-textarea:focus {
+      outline: none;
+      border-color: var(--pf-ink);
+    }
+
+    .pf-submit-btn {
+      width: 100%;
+      background: var(--pf-ink);
+      color: #FAF8F5;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-sans-jp);
+      cursor: pointer;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pf-submit-btn:hover {
+      background: var(--pf-accent);
+    }
+
+    /* Footer */
+    .pf-footer {
+      padding: 60px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--pf-muted);
+      border-top: 1px solid var(--pf-line);
+    }
+
+    /* Toast Notification */
+    .pf-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--pf-ink);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pf-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       2. MOCKUP VIEWPORT INTERNAL STYLES (SHARED)
+       ========================================================================== */
+    .mockup-content-pane {
+      display: none;
+    }
+    .mockup-content-pane.active {
+      display: block;
+    }
+
+    /* --- (A) LUMIÈRE CALM STYLES --- */
+    .lumiere-root {
+      background: #FAF8F5;
+      color: #3D3532;
+      font-size: 13px;
+    }
+    .lumiere-video-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 15;
+      background: #1A1413;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lumiere-story-bars {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      right: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      z-index: 25;
+    }
+    .lumiere-story-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .lumiere-story-fill {
+      height: 100%;
+      width: 0%;
+      background: #FFF;
+      transition: width 0.1s linear;
+    }
+    .lumiere-photo-cut {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.8s ease;
+    }
+    .lumiere-cut1 {
+      filter: brightness(0.75) saturate(0.85);
+    }
+    .lumiere-cut2 {
+      opacity: 0;
+      filter: brightness(0.95) saturate(1.1);
+    }
+    .lumiere-video-stage.is-glow .lumiere-cut2 {
+      opacity: 1;
+    }
+    .lumiere-vignette {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(18,13,12,0.4) 0%, rgba(18,13,12,0.1) 40%, rgba(18,13,12,0.85) 100%);
+      z-index: 5;
+    }
+    .lumiere-fv-overlay {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      color: white;
+    }
+    .lumiere-chip-btn {
+      width: 100%;
+      text-align: left;
+      background: rgba(28, 22, 20, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+    .lumiere-chip-btn.active {
+      background: linear-gradient(90deg, rgba(196, 154, 147, 0.9), rgba(212, 175, 122, 0.85));
+      border-color: #F3E5AB;
+      font-weight: 700;
+    }
+
+    /* --- (B) DEVROUTE STYLES --- */
+    .devroute-root {
+      background: #FFFFFF;
+      color: #0F172A;
+      font-size: 13px;
+    }
+    .devroute-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .devroute-tag-pill {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .devroute-tag-pill.active {
+      background: #2563EB;
+      color: white;
+      border-color: #2563EB;
+      font-weight: 700;
+    }
+
+    /* --- (C) GENBA COMPASS STYLES --- */
+    .genba-root {
+      background: #FAF9F6;
+      color: #1E293B;
+      font-size: 13px;
+    }
+    .genba-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .genba-check-item {
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      transition: all 0.2s ease;
+    }
+    .genba-check-item.checked {
+      border-color: #D97706;
+      background: #FFFBEB;
+    }
+
+    @media (max-width: 960px) {
+      .pf-sec-head { grid-template-columns: 1fr; gap: 12px; }
+      .pf-pillars { grid-template-columns: 1fr; }
+      .pf-work-grid { grid-template-columns: 1fr; }
+      .pf-device-column { position: static; max-width: 440px; margin: 0 auto; }
+      .pf-profile-wrap { grid-template-columns: 1fr; padding: 32px 24px; }
+      .pf-profile-card { border-right: none; border-bottom: 1px solid var(--pf-line); padding-right: 0; padding-bottom: 28px; }
+      .pf-contact-wrap { grid-template-columns: 1fr; padding: 32px 24px; gap: 32px; }
+      .pf-career-row { grid-template-columns: 1fr; gap: 4px; }
+      .pf-nav a:not(.pf-nav-btn) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       PORTFOLIO HEADER
+       ======================================================================== -->
+  <header class="pf-header">
+    <div class="pf-header-inner">
+      <a href="#" class="pf-brand">
+        <span class="pf-brand-name">Hiiro.M</span>
+        <span class="pf-brand-role">Web Marketing / LP Design / Career &amp; HR Support</span>
+      </a>
+      <nav class="pf-nav">
+        <a href="#strengths">ご依頼の強み</a>
+        <a href="#works">制作実績・意図</a>
+        <a href="#profile">自己紹介</a>
+        <a href="#contact" class="pf-nav-btn">
+          <i class="fa-regular fa-envelope"></i> お問い合わせ
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="pf-hero">
+    <div class="pf-container">
+      <div class="pf-hero-meta">Portfolio &amp; Case Study — Hokkaido, Japan</div>
+      <h1 class="pf-hero-title">
+        数字の根拠と、画面の向こうにいる「人」の温度感。<br>
+        その両方から逆算して、心動かすページを設計します。
+      </h1>
+      <p class="pf-hero-lead">
+        ECサイトの構築・運営、Webマーケティング企業での広告運用、コールセンターでのCS（顧客対応）、そして企業IT部門でのAI業務効率化・DX推進。<br>
+        複数の現場を横断してきたからこそ、机上の数字や煽り文句に頼らず、「お客様・求職者のリアルな本音」に深く寄り添ったLP制作とクリエイティブをご提案します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 1: WHY WORK WITH ME
+       ======================================================================== -->
+  <section class="pf-section" id="strengths">
+    <div class="pf-container">
+      <div class="pf-sec-head">
+        <div>
+          <span class="pf-sec-label">01 / Why Work With Me</span>
+          <h2 class="pf-sec-title">私にご依頼いただく<br>3つのメリット</h2>
+        </div>
+        <p class="pf-sec-desc">
+          デザイン単体、あるいは広告運用単体ではなく、「求職者や顧客がどんな言葉に安心し、どこで迷い、どうすれば気持ちよく次のアクションに至るか」を実務経験から立体的に組み立てます。
+        </p>
+      </div>
+
+      <div class="pf-pillars">
+        <!-- Pillar 1 -->
+        <article class="pf-pillar-card">
+          <div>
+            <div class="pf-pillar-num">01.</div>
+            <span class="pf-pillar-cross">CS現場の対話力 × EC構築・Web広告運用</span>
+            <h3 class="pf-pillar-title">「画面の前のリアルな迷い」を先回りして解消する導線設計</h3>
+            <p class="pf-pillar-text">
+              コールセンターでのCS経験を通じ、ユーザーが購入前・応募前に抱く不安や、どんな誠実な説明で心を開くかを肌で学んできました。通販ECや広告運用の数値分析を掛け合わせ、押し付けがましくない自然な文章でありながら、離脱を防いでコンバージョンへつなげます。
+            </p>
+          </div>
+        </article>
+
+        <!-- Pillar 2 -->
+        <article class="pf-pillar-card">
+          <div>
+            <div class="pf-pillar-num">02.</div>
+            <span class="pf-pillar-cross">Webマーケティング × デザイン・動画制作</span>
+            <h3 class="pf-pillar-title">広告クリエイティブからLPまで、世界観を揃えて一貫制作</h3>
+            <p class="pf-pillar-text">
+              「広告はクリックされるのにLPで離脱される」課題の多くは、広告とLPのメッセージや空気感のズレから生まれます。PhotoshopやIllustratorによるバナー、CapCutによる縦型ショート動画、そしてLPのライティング・実装まで一気通貫で対応し、ブレのない販促導線を作ります。
+            </p>
+          </div>
+        </article>
+
+        <!-- Pillar 3 -->
+        <article class="pf-pillar-card">
+          <div>
+            <div class="pf-pillar-num">03.</div>
+            <span class="pf-pillar-cross">企業IT部門でのAI・DX推進 × 手仕事の調整</span>
+            <h3 class="pf-pillar-title">生成AIを活用した「素早い初稿」と、細部までこだわる対話</h3>
+            <p class="pf-pillar-text">
+              企業のIT部門にて生成AIを活用した業務効率化を担ってきました。市場調査や構成案のたたき台作成、プロトタイプ構築を高速化する一方、そこで生まれた時間を「クライアント様との丁寧なすり合わせ」や「人の心に響く言葉選び・デザインの微調整」に充て、スピードと品質を両立します。
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: SELECTED WORKS (3 DISTINCT CASES WITH LIVE SMARTPHONE PREVIEW)
+       ======================================================================== -->
+  <section class="pf-section" id="works">
+    <div class="pf-container">
+      <div class="pf-sec-head">
+        <div>
+          <span class="pf-sec-label">02 / Selected Works</span>
+          <h2 class="pf-sec-title">制作実績と設計意図</h2>
+        </div>
+        <p class="pf-sec-desc">
+          美容D2C、ITエンジニア採用、建設施工管理採用の3領域のLP実績です。右側のスマートフォン画面は実際にスクロール・タップ操作が可能です。タブを切り替えてそれぞれの設計意図とUI挙動をお試しください。
+        </p>
+      </div>
+
+      <!-- 3-Way Switcher Tabs -->
+      <div class="pf-works-nav">
+        <button class="pf-work-tab active" onclick="switchWorkCase('lumiere', this)">
+          <span class="pf-work-tab-badge">01. D2C / BEAUTY</span>
+          <span>美容液『LUMIÈRE CALM』</span>
+        </button>
+        <button class="pf-work-tab" onclick="switchWorkCase('it', this)">
+          <span class="pf-work-tab-badge">02. HR / TECH</span>
+          <span>IT転職『DEVROUTE』</span>
+        </button>
+        <button class="pf-work-tab" onclick="switchWorkCase('construction', this)">
+          <span class="pf-work-tab-badge">03. HR / CONSTRUCTION</span>
+          <span>施工管理『現場コンパス』</span>
+        </button>
+      </div>
+
+      <div class="pf-work-grid">
+        
+        <!-- Left: Dynamic Case Study Description -->
+        <div class="pf-case-study">
+
+          <!-- CASE 1: LUMIÈRE CALM -->
+          <div id="caseStudyLumiere" class="case-study-pane">
+            <span class="pf-case-badge">D2C PLANNING / COPYWRITING / UI DESIGN / CODE</span>
+            <h3 class="pf-case-title">冬季保湿・くすみケア美容液<br>『LUMIÈRE CALM』販売促進LP</h3>
+            <p class="pf-case-sub">
+              仕事や育児に追われる30代女性が、冬の夜にほっと一息つきながら読める「静かな華やかさ」と「納得感」を両立したダイレクトレスポンスLP。
+            </p>
+
+            <table class="pf-spec-table">
+              <tr>
+                <th>目的</th>
+                <td>新規顧客向けの定期便お試しオファー（初回1,980円）の購入コンバージョン獲得</td>
+              </tr>
+              <tr>
+                <th>ターゲット</th>
+                <td>冬場の「肌の乾燥」「夕方のくすみ・顔色の暗さ」に悩む、多忙な30代女性</td>
+              </tr>
+              <tr>
+                <th>担当領域</th>
+                <td>ターゲット分析 / 構成案策定 / コピーライティング（薬機法配慮） / 縦型インタラクティブ動画UI実装 / HTML・CSSコーディング</td>
+              </tr>
+            </table>
+
+            <span class="pf-sec-label">Design &amp; Marketing Intent / 制作時の意図</span>
+            <div class="pf-intent-list">
+              <div class="pf-intent-item">
+                <h4>1. FVでの「自分ごと化」を生む縦型インタラクティブ動画</h4>
+                <p>
+                  スマホ広告から流入したユーザーが最初の3秒で離脱しないよう、9:16の動画エリアにお悩み別チップ（「夕方のどんより顔」「朝のメイクのり」等）を配置。タップすると「悩みの瞬間（CUT 1）」から「うるおいツヤ肌の瞬間（CUT 2）」へ光彩とともに切り替わり、使用後のベネフィットを直感的に疑似体験できる設計にしました。
+                </p>
+              </div>
+              <div class="pf-intent-item">
+                <h4>2. 煽り文句や断定表現を排した、等身大のコピーライティング</h4>
+                <p>
+                  「奇跡の」「究極の」といった誇大表現はユーザーの警戒心を生むだけでなく薬機法上のリスクにもなります。「夕方の電車の窓に映る顔を見て、あれ、今日こんなに疲れてたっけと思った日の夜に。」という日常の情景から入り、生活者にそっと寄り添う言葉で構成しました。
+                </p>
+              </div>
+              <div class="pf-intent-item">
+                <h4>3. CS視点を取り入れた「購入直前の不安解消」設計</h4>
+                <p>
+                  通販化粧品の購入で最大のハードルとなる「定期便の解約が電話のみではないか」「朝のメイク前に使ってヨレないか」という疑問を先回りし、CTA直下のマイクロコピーとアコーディオンFAQで明確に回答。納得した状態で申し込める導線を整えています。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CASE 2: DEVROUTE -->
+          <div id="caseStudyIt" class="case-study-pane" style="display: none;">
+            <span class="pf-case-badge" style="color: var(--pf-blue); border-color: var(--pf-blue);">HR TECH / CAREER SUPPORT / UX DESIGN</span>
+            <h3 class="pf-case-title">技術が通じる安心感を届ける、<br>ITエンジニア特化転職LP『DEVROUTE』</h3>
+            <p class="pf-case-sub">
+              有効求人倍率6〜8倍超の激戦区において、サイバーネオンや過度な年収煽りを排し、エンジニアが最も嫌がる「的外れなスカウト電話」への警戒を解く誠実なキャリア伴走LP。
+            </p>
+
+            <table class="pf-spec-table">
+              <tr>
+                <th>目的</th>
+                <td>20〜30代現役エンジニアからの無料キャリア面談・求人閲覧エントリーの獲得</td>
+              </tr>
+              <tr>
+                <th>ターゲット</th>
+                <td>レガシー保守に追われてモダン技術に触れられず焦りを感じているWeb・バックエンドエンジニア</td>
+              </tr>
+              <tr>
+                <th>担当領域</th>
+                <td>ペルソナインサイト調査 / テック特化ワイヤーフレーム / EFOマイクロステップ診断実装 / デザイン・コーディング</td>
+              </tr>
+            </table>
+
+            <span class="pf-sec-label">Design &amp; Marketing Intent / 制作時の意図</span>
+            <div class="pf-intent-list">
+              <div class="pf-intent-item" style="border-left-color: var(--pf-blue);">
+                <h4>1. AI量産感を排除した、信頼性の高いクリーンエディトリアル</h4>
+                <p>
+                  感度の高いエンジニア層は「いかにもな広告」を直感的に嫌います。FindyやYOUTRUSTのような清潔感のある白基調と知的なロイヤルブルーを採用し、「技術の話が通じそう」という心理的安全性を担保しました。
+                </p>
+              </div>
+              <div class="pf-intent-item" style="border-left-color: var(--pf-blue);">
+                <h4>2. 「電話不要・チャット完結」の明記によるCVR劇的改善</h4>
+                <p>
+                  エンジニアが転職サイトに登録しない最大の理由は「登録直後に営業電話が鳴り止まなくなる恐怖」です。フォーム最終ステップで「メール・チャットのみ」を選択可能に明記し、心理的ハードルを極限まで引き下げています。
+                </p>
+              </div>
+              <div class="pf-intent-item" style="border-left-color: var(--pf-blue);">
+                <h4>3. 技術スタック・開発体制・負債の事前開示</h4>
+                <p>
+                  「年収〇〇万UP！」といった煽りは早期退職を招きます。CI/CDの導入状況、テストカバレッジ、アーキテクチャの課題まで事前に正直に共有するスタンスを示すことで、人材紹介事業者としてのマッチング精度を高めています。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CASE 3: 現場コンパス -->
+          <div id="caseStudyConstruction" class="case-study-pane" style="display: none;">
+            <span class="pf-case-badge" style="color: var(--pf-amber); border-color: var(--pf-amber);">HR CONSTRUCTION / 2024 PROBLEM / LINE CTA</span>
+            <h3 class="pf-case-title">現場の激務と責任に報いる、<br>施工管理特化転職LP『現場コンパス』</h3>
+            <p class="pf-case-sub">
+              有効求人倍率6〜10倍超の超売り手市場。2024年問題（時間外労働規制）に直面する現場監督の「時間と身体の限界」に真摯に寄り添い、LINE完結で手軽に相談できる導線を構築。
+            </p>
+
+            <table class="pf-spec-table">
+              <tr>
+                <th>目的</th>
+                <td>1級・2級建築/土木/管工事施工管理技士からのLINE友だち追加および条件診断エントリー獲得</td>
+              </tr>
+              <tr>
+                <th>ターゲット</th>
+                <td>17時の現場終了後も深夜まで安全書類に追われ、土曜稼働で家族との時間を失っている20〜40代現場監督</td>
+              </tr>
+              <tr>
+                <th>担当領域</th>
+                <td>建設現場ペイン分析 / 書類代行フロー設計 / LINE連携デュアルCTA UI / モバイルファースト実装</td>
+              </tr>
+            </table>
+
+            <span class="pf-sec-label">Design &amp; Marketing Intent / 制作時の意図</span>
+            <div class="pf-intent-list">
+              <div class="pf-intent-item" style="border-left-color: var(--pf-amber);">
+                <h4>1. 「朝早くから本当にお疲れさまです」から始まる深い共感</h4>
+                <p>
+                  安易な注意色ネオンやトラ縞を排し、ディープスレートと温かなアンバーのアーストーンを採用。「17時からの安全書類」「直行直帰できない無駄な移動」「難関資格を取ったのに手当が数千円」という現場の生々しい痛点を的確に言語化しました。
+                </p>
+              </div>
+              <div class="pf-intent-item" style="border-left-color: var(--pf-amber);">
+                <h4>2. 多忙な現場監督を救う「日中電話なし・LINEで経歴書代行」</h4>
+                <p>
+                  PCを開く暇もない技術者のために、「過去の現場名をLINEで箇条書きするだけで職歴書を代行作成」するフローを提示。日中の営業電話も一切行わない約束を交わし、エントリーへの心理的摩擦をゼロにしています。
+                </p>
+              </div>
+              <div class="pf-intent-item" style="border-left-color: var(--pf-amber);">
+                <h4>3. 人材紹介事業としての高い手数料ROIの実現</h4>
+                <p>
+                  施工管理技士の採用決定手数料は1名あたり180万〜250万円超。本LPによって「資格保有者」をターゲットにしたCVRを高めることで、事業者の広告獲得効率（CPA）を大幅に改善します。
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Interactive Smartphone Shell -->
+        <div class="pf-device-column">
+          <div class="pf-device-caption">
+            <span>▼ LIVE INTERACTIVE PREVIEW（実機操作可能）</span>
+            <span id="activeMockupIndicator">01. 美容液LP プレビュー中</span>
+          </div>
+
+          <div class="pf-device-shell">
+            <div class="pf-device-viewport" id="deviceViewport">
+
+              <!-- ============================================================
+                   (VIEW 1) LUMIÈRE CALM LP MOCKUP
+                   ============================================================ -->
+              <div id="mockupLumiere" class="mockup-content-pane active lumiere-root">
+                <!-- 1. FV (9:16 Video Stage) -->
+                <div class="lumiere-video-stage" id="lumiereStage">
+                  <div class="lumiere-story-bars">
+                    <div class="lumiere-story-bar"><div class="lumiere-story-fill" id="lumiereBar0"></div></div>
+                    <div class="lumiere-story-bar"><div class="lumiere-story-fill" id="lumiereBar1"></div></div>
+                    <div class="lumiere-story-bar"><div class="lumiere-story-fill" id="lumiereBar2"></div></div>
+                  </div>
+
+                  <div style="position: absolute; top: 22px; left: 14px; right: 14px; display: flex; justify-content: space-between; z-index: 25; font-size: 10px; color: white;">
+                    <span style="font-family: var(--font-en); font-weight: 600; letter-spacing: 2px;">LUMIÈRE CALM</span>
+                    <span id="lumiereCutBadge" style="background: rgba(0,0,0,0.5); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.3);">CUT 1 : 冬の肌悩み</span>
+                  </div>
+
+                  <div class="lumiere-photo-cut lumiere-cut1" id="lumierePhoto1" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80');"></div>
+                  <div class="lumiere-photo-cut lumiere-cut2" id="lumierePhoto2" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=700&q=80');"></div>
+                  <div class="lumiere-vignette"></div>
+
+                  <div class="lumiere-fv-overlay">
+                    <div style="font-size: 10px; color: #F3E5AB; margin-bottom: 6px;">✦ 夕方、鏡に映るどんより顔が気になる方へ</div>
+                    <h4 style="font-family: var(--font-serif-jp); font-size: 13px; line-height: 1.5; margin-bottom: 8px;">
+                      夕方の電車の窓に映る顔を見て、<br>
+                      「あれ、今日こんなに疲れてたっけ」と思った日の夜に。
+                    </h4>
+                    <p style="font-size: 10px; opacity: 0.85; margin-bottom: 12px; line-height: 1.6;">
+                      寒さと忙しさで乾いていた肌へ。手のひらでやさしく包み込むだけのシンプルケア。
+                    </p>
+                    <div class="lumiere-chips">
+                      <button type="button" class="lumiere-chip-btn active" onclick="switchLumiereScene(0, this)">
+                        <span>A. 夕方、鏡に映るどんより顔が気になる</span> <span>▶</span>
+                      </button>
+                      <button type="button" class="lumiere-chip-btn" onclick="switchLumiereScene(1, this)">
+                        <span>B. 朝、メイクがうまくのらなくて焦る</span> <span>▶</span>
+                      </button>
+                      <button type="button" class="lumiere-chip-btn" onclick="switchLumiereScene(2, this)">
+                        <span>C. とにかく自分のケアに時間をかけられない</span> <span>▶</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CTA -->
+                <div style="padding: 16px; background: #261E1C; text-align: center;">
+                  <div style="background: white; border-radius: 12px; padding: 14px;">
+                    <p style="font-size: 10px; color: #8C7A70; margin-bottom: 6px;">いつでもお休み・ご解約可能 / 全国送料無料</p>
+                    <button onclick="showToast('デモ：購入フォームへスクロールします')" style="width: 100%; background: linear-gradient(135deg, #D97E67, #C66249); color: white; border: none; padding: 12px; border-radius: 99px; font-weight: bold; font-size: 12px; cursor: pointer;">
+                      【約30日分】まずは自分の肌で試してみる
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Features -->
+                <div style="padding: 24px 16px;">
+                  <span style="font-family: var(--font-en); font-size: 10px; color: #C49A93; letter-spacing: 2px; display: block; text-align: center;">FOUR FEATURES</span>
+                  <h4 style="font-family: var(--font-serif-jp); font-size: 13px; text-align: center; margin-bottom: 16px;">これ1本で、肌が深呼吸するような心地よさを。</h4>
+                  <div style="background: white; border: 1px solid #EFE4E1; border-radius: 10px; padding: 14px; margin-bottom: 10px;">
+                    <span style="font-size: 10px; color: #C49A93; font-weight: bold;">01. こだわりの浸透設計</span>
+                    <p style="font-size: 11px; color: #6E675F; margin-top: 4px;">重たいオイルのベタつきはなく、さらっと肌になじむテクスチャー。朝のメイク直前でもヨレません。</p>
+                  </div>
+                  <div style="background: white; border: 1px solid #EFE4E1; border-radius: 10px; padding: 14px;">
+                    <span style="font-size: 10px; color: #C49A93; font-weight: bold;">02. 手のひらで30秒、包み込むだけ</span>
+                    <p style="font-size: 11px; color: #6E675F; margin-top: 4px;">化粧水・美容液・乳液の役割をこれ1本に。手のぬくもりを感じながら深呼吸するスキンケア。</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- ============================================================
+                   (VIEW 2) DEVROUTE LP MOCKUP
+                   ============================================================ -->
+              <div id="mockupIt" class="mockup-content-pane devroute-root">
+                <div class="devroute-header">
+                  <div style="display: flex; items-center: center; gap: 6px;">
+                    <span style="background: #2563EB; color: white; font-weight: bold; font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px;">&gt;</span>
+                    <span style="font-weight: 800; font-size: 13px;">DEVROUTE</span>
+                  </div>
+                  <span style="font-size: 10px; color: #2563EB; background: #EFF6FF; padding: 2px 8px; border-radius: 99px; font-weight: bold;">面談・相談無料</span>
+                </div>
+
+                <div style="padding: 20px 16px; background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);">
+                  <span style="display: inline-block; font-size: 10px; background: white; border: 1px solid #E2E8F0; padding: 2px 8px; border-radius: 99px; color: #475569; margin-bottom: 8px;">
+                    技術と心に寄り添う転職伴走
+                  </span>
+                  <h4 style="font-size: 15px; font-weight: 800; line-height: 1.45; margin-bottom: 8px;">
+                    「技術の話が通じない。」<br>
+                    そんな転職活動、もう終わりにしませんか。
+                  </h4>
+                  <p style="font-size: 11px; color: #475569; line-height: 1.65; margin-bottom: 14px;">
+                    日々の保守に追われ外の技術に焦る気持ちを、元開発者の専任アドバイザーが受け止めます。無理な転職勧奨は一切ありません。
+                  </p>
+
+                  <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                    <span style="font-size: 11px; font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">気になる技術スタックをタップ：</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;">
+                      <span class="devroute-tag-pill active" onclick="toggleDevTag(this)">TypeScript</span>
+                      <span class="devroute-tag-pill active" onclick="toggleDevTag(this)">Go / GCP</span>
+                      <span class="devroute-tag-pill" onclick="toggleDevTag(this)">Python</span>
+                      <span class="devroute-tag-pill" onclick="toggleDevTag(this)">AWS / IaC</span>
+                      <span class="devroute-tag-pill" onclick="toggleDevTag(this)">Next.js</span>
+                    </div>
+                    <div style="background: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 8px; padding: 8px; font-size: 10px; color: #1E40AF;">
+                      選んだ技術にマッチする自社開発チーム：<strong style="font-family: var(--font-mono); font-size: 13px;">28件</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Promise -->
+                <div style="padding: 16px; background: #F8FAFC; border-top: 1px solid #E2E8F0;">
+                  <span style="font-size: 10px; font-weight: bold; color: #2563EB;">DEVROUTEの約束</span>
+                  <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 10px; border-radius: 8px; font-size: 11px;">
+                      <strong style="color: #0F172A; display: block;">✓ 電話不要・チャットのみで相談可</strong>
+                      <span style="color: #64748B; font-size: 10px;">日中に突然の営業電話をかけることは一切ありません。</span>
+                    </div>
+                    <div style="background: white; border: 1px solid #E2E8F0; padding: 10px; border-radius: 8px; font-size: 11px;">
+                      <strong style="color: #0F172A; display: block;">✓ 技術的負債・コード品質の事前開示</strong>
+                      <span style="color: #64748B; font-size: 10px;">レビュー文化やテスト自動化の実情を正直にお伝えします。</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="padding: 14px 16px; background: white; border-top: 1px solid #E2E8F0; text-align: center;">
+                  <button onclick="showToast('デモ：30秒診断フォームへ移動します')" style="width: 100%; background: #2563EB; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 11px; cursor: pointer;">
+                    まずは技術の壁打ち・求人相談（無料）
+                  </button>
+                </div>
+              </div>
+
+
+              <!-- ============================================================
+                   (VIEW 3) GENBA COMPASS LP MOCKUP
+                   ============================================================ -->
+              <div id="mockupConstruction" class="mockup-content-pane genba-root">
+                <div class="genba-header">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-compass" style="color: #D97706;"></i>
+                    <span style="font-weight: 800; font-size: 13px;">現場コンパス</span>
+                  </div>
+                  <span style="font-size: 10px; color: #047857; background: #ECFDF5; padding: 2px 8px; border-radius: 99px; font-weight: bold; border: 1px solid #A7F3D0;">
+                    <i class="fa-brands fa-line"></i> LINE相談対応
+                  </span>
+                </div>
+
+                <div style="padding: 20px 16px; background: linear-gradient(180deg, #F5F3EF 0%, #FAF9F6 100%);">
+                  <span style="display: inline-block; font-size: 10px; background: white; border: 1px solid #E5E7EB; padding: 2px 8px; border-radius: 99px; color: #92400E; margin-bottom: 8px; font-weight: bold;">
+                    今日も朝早くから、本当にお疲れさまです。
+                  </span>
+                  <h4 style="font-size: 15px; font-weight: 900; line-height: 1.45; margin-bottom: 8px; color: #0F172A;">
+                    「モノづくりが好き」で選んだのに、<br>
+                    心と身体を削る毎日になっていませんか？
+                  </h4>
+                  <p style="font-size: 11px; color: #4B5563; line-height: 1.65; margin-bottom: 14px;">
+                    誰よりも現場を支えている施工管理者が一番無理をしている。そんな建設業界の当たり前を、あなたの職場から変えませんか？
+                  </p>
+
+                  <div style="background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 12px;">
+                    <span style="font-size: 11px; font-weight: bold; color: #1E293B; display: block; margin-bottom: 8px;">現場の悩みチェック（タップ選択）：</span>
+                    <div class="genba-check-item checked" onclick="toggleGenbaCheck(this)">
+                      <i class="fa-solid fa-square-check" style="color: #D97706; margin-top: 2px;"></i>
+                      <span style="font-size: 11px;">17時に現場が終わってから深夜まで安全書類と写真整理</span>
+                    </div>
+                    <div class="genba-check-item" onclick="toggleGenbaCheck(this)">
+                      <i class="fa-regular fa-square" style="color: #9CA3AF; margin-top: 2px;"></i>
+                      <span style="font-size: 11px;">直行直帰できず、日報のためだけにわざわざ遠い事務所へ往復</span>
+                    </div>
+                    <div class="genba-check-item" onclick="toggleGenbaCheck(this)">
+                      <i class="fa-regular fa-square" style="color: #9CA3AF; margin-top: 2px;"></i>
+                      <span style="font-size: 11px;">1級資格を取ったのに、手当が月数千円しか上がらない</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="padding: 16px; background: white; border-top: 1px solid #E5E7EB;">
+                  <span style="font-size: 10px; font-weight: bold; color: #B45309;">忙しい現場監督のためのサポート</span>
+                  <p style="font-size: 11px; color: #4B5563; margin-top: 4px; line-height: 1.6;">
+                    日中の電話は一切いたしません。LINEで過去の現場名を箇条書きで送るだけで、面倒な職務経歴書の作成をすべて代行します。
+                  </p>
+                </div>
+
+                <div style="padding: 12px 16px; background: white; border-top: 1px solid #E5E7EB; display: flex; gap: 8px;">
+                  <button onclick="showToast('デモ：公式LINE友だち追加を開きます')" style="flex: 1; background: #059669; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: bold; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                    <i class="fa-brands fa-line text-sm"></i> LINEで相談
+                  </button>
+                  <button onclick="showToast('デモ：30秒診断フォームを開きます')" style="flex: 1; background: #D97706; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: bold; font-size: 11px; cursor: pointer;">
+                    30秒で条件診断
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 3: PROFILE
+       ======================================================================== -->
+  <section class="pf-section" id="profile">
+    <div class="pf-container">
+      <div class="pf-sec-head">
+        <div>
+          <span class="pf-sec-label">03 / Profile</span>
+          <h2 class="pf-sec-title">自己紹介・これまでの歩み</h2>
+        </div>
+        <p class="pf-sec-desc">
+          北海道の穏やかな暮らしの中で、日々の生活者としての感覚を大切にしながら、クライアント様の事業に長く伴走できるパートナーを目指しています。
+        </p>
+      </div>
+
+      <div class="pf-profile-wrap">
+        <!-- Left: Basic Info -->
+        <div class="pf-profile-card">
+          <div class="pf-avatar">
+            <span>Hiiro.M — Based in Hokkaido</span>
+          </div>
+          <div class="pf-name">Hiiro.M</div>
+          <div class="pf-basic">37歳 / 男性 / 北海道在住</div>
+
+          <div class="pf-tag-title">使用可能なツール・技術</div>
+          <div class="pf-tags">
+            <span class="pf-tag">各種生成AI</span>
+            <span class="pf-tag">Adobe Photoshop</span>
+            <span class="pf-tag">Adobe Illustrator</span>
+            <span class="pf-tag">Canva</span>
+            <span class="pf-tag">CapCut</span>
+            <span class="pf-tag">HTML / CSS / JS</span>
+          </div>
+
+          <div class="pf-tag-title">趣味・好きなこと</div>
+          <div class="pf-tags">
+            <span class="pf-tag">料理</span>
+            <span class="pf-tag">写真撮影</span>
+            <span class="pf-tag">音楽鑑賞</span>
+            <span class="pf-tag">映画鑑賞</span>
+            <span class="pf-tag">旅行</span>
+          </div>
+        </div>
+
+        <!-- Right: Story -->
+        <div class="pf-story">
+          <h3>「作り手の想い」を、お客様が受け取りやすい形に翻訳する仕事。</h3>
+          <p>
+            はじめまして、北海道在住のHiiro.Mと申します。私のキャリアの出発点は、コールセンターでのCS（カスタマーサポート）業務でした。画面や受話器の向こうにいるお客様が「何に困り、どんな説明なら安心していただけるのか」を毎日考え続けた経験が、今のすべての制作物の土台になっています。
+          </p>
+          <p>
+            その後、Webマーケティング企業での各種Web広告運用やECサイトの運営・構築に携わり、「集客から成約までの数字の動き」を実務として経験しました。さらに企業のIT部門（コーポレートIT）にて生成AIを活用した業務効率化やDX推進を担ったことで、最新技術を使って制作スピードと精度を高めるワークフローを確立しています。
+          </p>
+
+          <div class="pf-career-list">
+            <div class="pf-career-row">
+              <div class="pf-career-domain">ECサイト運営・構築</div>
+              <div class="pf-career-detail">商品ページの企画構成、カート導線の改善、購入率（CVR）を高めるページ構築と日々のストア運営業務。</div>
+            </div>
+            <div class="pf-career-row">
+              <div class="pf-career-domain">Webマーケティング・広告運用</div>
+              <div class="pf-career-detail">Webマーケティング企業にて、各種Web広告の運用・クリエイティブ検証・LPとの一貫した改善施策を担当。</div>
+            </div>
+            <div class="pf-career-row">
+              <div class="pf-career-domain">企業IT部門（AI活用・DX推進）</div>
+              <div class="pf-career-detail">生成AIを組み込んだ業務フローの効率化、社内DX推進、迅速なリサーチとプロトタイピング環境の構築。</div>
+            </div>
+            <div class="pf-career-row">
+              <div class="pf-career-domain">コールセンターCS経験</div>
+              <div class="pf-career-detail">顧客応対を通じたインサイト把握、解約理由や購入前の疑問点の分析、信頼関係を築くコミュニケーション。</div>
+            </div>
+          </div>
+
+          <p>
+            休日はキッチンに立って季節の食材で料理を作ったり、カメラを持って北海道の風景を撮影したりしながら過ごしています。写真撮影で培った「光のトーンや余白の捉え方」、そして映画のワンシーンのような情景描写は、LPのビジュアル設計やコピーライティングにも自然と息づいています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 4: CONTACT & INQUIRY
+       ======================================================================== -->
+  <section class="pf-section" id="contact" style="border-bottom: none;">
+    <div class="pf-container">
+      <div class="pf-sec-head">
+        <div>
+          <span class="pf-sec-label">04 / Contact</span>
+          <h2 class="pf-sec-title">まずはお気軽に<br>ご相談ください</h2>
+        </div>
+        <p class="pf-sec-desc">
+          「まだ発注するか決まっていない」「要件が固まっていない段階で壁打ちしたい」「コンペ提案で協業できるデザイナーを探している」など、どのような段階でも歓迎いたします。
+        </p>
+      </div>
+
+      <div class="pf-contact-wrap">
+        <!-- Left: Direct Email & Reassurance -->
+        <div class="pf-contact-info">
+          <h3>北海道から全国へ。<br>オンラインで柔軟に伴走します。</h3>
+          <p>
+            Google MeetやZoomによるオンライン面談、メールやチャットツール（Slack / Chatwork / LINE等）での連絡に対応しています。強引な営業や勧誘は一切いたしませんのでご安心ください。
+          </p>
+
+          <div class="pf-email-card">
+            <span class="pf-email-label">DIRECT EMAIL ADDRESS:</span>
+            <span class="pf-email-address" id="contactEmail">tori.bizops8901@gmail.com</span>
+            <div class="pf-email-actions">
+              <button type="button" class="pf-copy-btn" onclick="copyEmailAddress()">
+                <i class="fa-regular fa-copy"></i> アドレスをコピー
+              </button>
+              <a href="mailto:tori.bizops8901@gmail.com" class="pf-mail-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> メールソフト起動
+              </a>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--pf-muted); line-height: 1.8;">
+            <p>※ 原則24時間以内にご返信いたします。</p>
+            <p>※ お急ぎの案件やタイトなコンペ日程もまずはご相談ください。</p>
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div>
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="pf-form-group">
+              <label class="pf-form-label">ご相談の種別（複数可）</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.8rem;">
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="checkbox" name="topic" value="compe"> コンペ協業・企画
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="checkbox" name="topic" value="renew"> 既存LPの改善・リニューアル
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="checkbox" name="topic" value="new"> 新規特化型LPの制作
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="checkbox" name="topic" value="casual"> 要件未定の壁打ち相談
+                </label>
+              </div>
+            </div>
+
+            <div class="pf-form-group">
+              <label class="pf-form-label">貴社名 / ご担当者様名 *</label>
+              <input type="text" required placeholder="例: 株式会社サンプル / 山田 太郎" class="pf-input">
+            </div>
+
+            <div class="pf-form-group">
+              <label class="pf-form-label">ご連絡先メールアドレス *</label>
+              <input type="email" required placeholder="例: yamada@example.com" class="pf-input">
+            </div>
+
+            <div class="pf-form-group">
+              <label class="pf-form-label">ご相談・ご質問の内容</label>
+              <textarea rows="4" placeholder="対象業界、現在の課題、ご希望の納期感など、思いついた範囲でお気軽にご記入ください。" class="pf-textarea"></textarea>
+            </div>
+
+            <button type="submit" class="pf-submit-btn">
+              <i class="fa-regular fa-paper-plane"></i> メッセージを送信する
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pf-footer">
+    <div class="pf-container">
+      <p style="font-family: var(--font-en); font-size: 1.1rem; margin-bottom: 6px; letter-spacing: 0.05em;">Hiiro.M</p>
+      <p>© 2026 Hiiro.M — Web Marketer &amp; Designer Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toastNotification" class="pf-toast">
+    <i class="fa-solid fa-circle-check" style="color: #4ADE80;"></i>
+    <span id="toastText">メールアドレスをコピーしました</span>
+  </div>
+
+  <!-- ========================================================================
+       SCRIPTS: CASE SWITCHER + CANVAS / VIDEO SIMULATION + EMAIL COPY
+       ======================================================================== -->
+  <script>
+    // 1. Works Case Switcher
+    function switchWorkCase(caseId, tabBtn) {
+      // Update Tab Buttons
+      document.querySelectorAll('.pf-work-tab').forEach(b => b.classList.remove('active'));
+      tabBtn.classList.add('active');
+
+      // Update Left Descriptions
+      document.querySelectorAll('.case-study-pane').forEach(p => p.style.display = 'none');
+      if (caseId === 'lumiere') document.getElementById('caseStudyLumiere').style.display = 'block';
+      if (caseId === 'it') document.getElementById('caseStudyIt').style.display = 'block';
+      if (caseId === 'construction') document.getElementById('caseStudyConstruction').style.display = 'block';
+
+      // Update Right Device Viewport
+      document.querySelectorAll('.mockup-content-pane').forEach(m => m.classList.remove('active'));
+      const indicator = document.getElementById('activeMockupIndicator');
+
+      if (caseId === 'lumiere') {
+        document.getElementById('mockupLumiere').classList.add('active');
+        indicator.textContent = '01. 美容液LP プレビュー中';
+      } else if (caseId === 'it') {
+        document.getElementById('mockupIt').classList.add('active');
+        indicator.textContent = '02. IT転職LP プレビュー中';
+      } else if (caseId === 'construction') {
+        document.getElementById('mockupConstruction').classList.add('active');
+        indicator.textContent = '03. 施工管理LP プレビュー中';
+      }
+
+      // Reset scroll position of device
+      document.getElementById('deviceViewport').scrollTop = 0;
+    }
+
+    // 2. LUMIÈRE CALM Interactive Video Simulation
+    let lumiereScene = 0;
+    let lumiereTimer = null;
+    const stage = document.getElementById('lumiereStage');
+    const cutBadge = document.getElementById('lumiereCutBadge');
+    const bars = [
+      document.getElementById('lumiereBar0'),
+      document.getElementById('lumiereBar1'),
+      document.getElementById('lumiereBar2')
+    ];
+
+    function switchLumiereScene(idx, btn) {
+      lumiereScene = idx;
+      document.querySelectorAll('.lumiere-chip-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+      bars.forEach((b, i) => {
+        b.style.width = i <= idx ? '100%' : '0%';
+      });
+
+      stage.classList.remove('is-glow');
+      cutBadge.textContent = 'CUT 1 : 冬の肌悩み';
+
+      clearTimeout(lumiereTimer);
+      lumiereTimer = setTimeout(() => {
+        stage.classList.add('is-glow');
+        cutBadge.textContent = 'CUT 2 : うるおいツヤ肌へ';
+      }, 700);
+    }
+
+    if (stage) {
+      stage.addEventListener('click', () => {
+        stage.classList.toggle('is-glow');
+        cutBadge.textContent = stage.classList.contains('is-glow') ? 'CUT 2 : うるおいツヤ肌へ' : 'CUT 1 : 冬の肌悩み';
+      });
+    }
+
+    // 3. DEVROUTE Tag Toggle
+    function toggleDevTag(el) {
+      el.classList.toggle('active');
+    }
+
+    // 4. GENBA COMPASS Checkbox Toggle
+    function toggleGenbaCheck(card) {
+      card.classList.toggle('checked');
+      const icon = card.querySelector('i');
+      if (card.classList.contains('checked')) {
+        icon.className = 'fa-solid fa-square-check';
+        icon.style.color = '#D97706';
+      } else {
+        icon.className = 'fa-regular fa-square';
+        icon.style.color = '#9CA3AF';
+      }
+    }
+
+    // 5. Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastText');
+      text.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // 6. Email Copy Handler
+    function copyEmailAddress() {
+      const email = document.getElementById('contactEmail').innerText;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('メールアドレスをコピーしました：' + email);
+        }).catch(() => fallbackCopy(email));
+      } else {
+        fallbackCopy(email);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast('メールアドレスをコピーしました：' + text);
+    }
+
+    // 7. Form Submit Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      showToast('お問い合わせを受け付けました。24時間以内にご返信いたします。');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
